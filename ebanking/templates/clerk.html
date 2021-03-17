@@ -1,0 +1,17 @@
+{% extends 'header.html' %} {% block ebanking %}
+<div class="cont">
+  <div class="login-cont">
+    <h3>Clerk Login</h3>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="inputs">
+        <p>Username</p>
+        <input type="text" name="clerk" />
+        <p>Password</p>
+        <input type="password" name="password" />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+{% endblock ebanking %}
