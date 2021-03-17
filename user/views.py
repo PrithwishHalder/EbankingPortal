@@ -1,21 +1,39 @@
 from django.shortcuts import render
+from .models import User
 
 
 # Create your views here.
 
 
-def dashboard(request):
+def dashboard(request, id):
+    context = {}
+    user = User.objects.get(id=id)
+    context['data'] = user
+    # # for i in context:
+    # print(context['data'].password)
 
-    return render(request, 'dashboard.html', {})
-
-
-def transaction(request):
-    return render(request, 'transaction.html', {})
-
-
-def transfer(request):
-    return render(request, 'transfer.html', {})
+    return render(request, 'dashboard.html', context)
 
 
-def profile(request):
-    return render(request, 'profile.html', {})
+def transaction(request, id):
+    context = {}
+    user = User.objects.get(id=id)
+    context['data'] = user
+
+    return render(request, 'transaction.html', context)
+
+
+def transfer(request, id):
+    context = {}
+    user = User.objects.get(id=id)
+    context['data'] = user
+
+    return render(request, 'transfer.html', context)
+
+
+def profile(request, id):
+    context = {}
+    user = User.objects.get(id=id)
+    context['data'] = user
+
+    return render(request, 'profile.html', context)

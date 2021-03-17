@@ -4,7 +4,9 @@
     <div class="login-cont">
       {% csrf_token %}
       <h3>User Login</h3>
+      {% if error%}
       <div class="error">{{error}}</div>
+      {% endif %}
       <div class="inputs">
         <p>Username</p>
         <input type="text" name="user" />

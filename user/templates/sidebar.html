@@ -12,12 +12,18 @@
     <div class="flex">
       <div class="sideheader">
         <div class="logo">EBanking</div>
+        <div>Hello, {{data.username}}</div>
+
         <div class="side-link">
           <ul>
-            <a href="{% url 'usr_dashboard' %}"><li>Dashboard</li></a>
-            <a href="{% url 'usr_transaction' %}"><li>Transactions</li></a>
-            <a href="{% url 'usr_transfer' %}"><li>Money Transfer</li></a>
-            <a href="{% url 'usr_profile' %}"><li>Profile</li></a>
+            <a href="{% url 'usr_dashboard' data.id %}"><li>Dashboard</li></a>
+            <a href="{% url 'usr_transaction' data.id %}"
+              ><li>Transactions</li></a
+            >
+            <a href="{% url 'usr_transfer' data.id %}"
+              ><li>Money Transfer</li></a
+            >
+            <a href="{% url 'usr_profile' data.id %}"><li>Profile</li></a>
           </ul>
         </div>
       </div>

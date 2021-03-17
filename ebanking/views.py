@@ -22,10 +22,11 @@ def user(request):
             context['error'] = "Login Failed!"
             return render(request, 'user.html', context)
         else:
-            context = user_l
             if user_l is not None:
+                context['id'] = user_l.id
+                print(context)
                 # login(request, username)
-                return redirect("usr_dashboard")
+                return redirect("usr_dashboard", id=user_l.id)
 
     return render(request, 'user.html', context)
 
