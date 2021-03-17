@@ -6,5 +6,6 @@ urlpatterns = [
     path('accounts/<id>', views.transaction, name="usr_transaction"),
     path('transfer/<id>', views.transfer, name="usr_transfer"),
     path('profile/<id>', views.profile, name="usr_profile"),
+    path('logout/', views.logout, name="logout"),
 
 ]

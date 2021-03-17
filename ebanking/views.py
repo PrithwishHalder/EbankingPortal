@@ -12,19 +12,24 @@ def home(request):
 def user(request):
     context = {}
 
-    if request.method == 'POST':
+    if request.method == 'GET':
+        if request.session.has_key('id'):
+            id = request.session['id']
+            return redirect("usr_dashboard", id=id)
+
+    elif request.method == 'POST':
         username = request.POST.get('user')
         password = request.POST.get('password')
 
         try:
             user_l = User.objects.get(username=username, password=password)
-        except Exception:
+        except:
             context['error'] = "Login Failed!"
             return render(request, 'user.html', context)
         else:
             if user_l is not None:
+                request.session['id'] = user_l.id
                 context['id'] = user_l.id
-                print(context)
                 # login(request, username)
                 return redirect("usr_dashboard", id=user_l.id)
 
@@ -40,7 +45,7 @@ def clerk(request):
 
         try:
             user_l = Clerk.objects.get(username=username, password=password)
-        except Exception:
+        except:
             context['error'] = "Login Failed!"
             return render(request, 'user.html', context)
         else:

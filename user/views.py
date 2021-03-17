@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User
 
 
@@ -37,3 +37,11 @@ def profile(request, id):
     context['data'] = user
 
     return render(request, 'profile.html', context)
+
+
+def logout(request):
+    try:
+        del request.session['id']
+    except:
+        pass
+    return redirect("home")
