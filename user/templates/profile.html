@@ -1,3 +1,39 @@
 {% extends 'sidebar.html' %} {% block user %}
-<h3 class="title">Profile</h3>
+<div>
+  <h3 class="title">Profile</h3>
+  <span>{{profilemsg}}</span>
+  <form method="post" class="t-form">
+    {% csrf_token %}
+    <div>Account No <span>{{data.acc_no}}</span></div>
+    <div>Name <span>{{data.fullname}}</span></div>
+    <div>
+      Email
+      <input type="email" class="inputs" name="email" value="{{data.email}}" />
+    </div>
+    <div>
+      Mobile
+      <input
+        type="number"
+        class="inputs"
+        name="mobile"
+        value="{{data.mobile}}"
+        maxlength="10"
+      />
+    </div>
+    <div>
+      Address
+      <input
+        type="text"
+        class="inputs"
+        name="address"
+        value="{{data.address}}"
+      />
+    </div>
+    <div>
+      <input type="reset" class="inputs" name="reset" value="Reset" />
+      <input type="submit" class="inputs" name="Submit" value="Submit" />
+    </div>
+  </form>
+</div>
+
 {% endblock user %}

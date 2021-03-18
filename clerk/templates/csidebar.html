@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/common.css' %}" />
+  </head>
+  <body>
+    <div class="flex">
+      <div class="header">
+        <div class="logo">EBanking</div>
+        <div class="link">Hello, {{data.fullname}}</div>
+
+        <div class="link">
+          <ul>
+            <a href=""><li>Dashboard</li></a>
+            <a href=""><li>User</li></a>
+            <a href=""><li>Transactions</li></a>
+            <a href=""><li>Money</li></a>
+            <a href=""><li>Profile</li></a>
+            <a href="{% url 'clogout' %}"><li>Logout</li></a>
+          </ul>
+        </div>
+      </div>
+      <div class="container">{% block clerk %} {% endblock %}</div>
+    </div>
+  </body>
+</html>
