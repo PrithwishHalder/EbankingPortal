@@ -1,0 +1,21 @@
+<div id="transaction">
+  {{transerror}}
+  <table class="table">
+    <tr>
+      <th>Date</th>
+      <th>Info</th>
+      <th>Credit</th>
+      <th>Debit</th>
+      <th>Balance</th>
+    </tr>
+    {% for tran in trans %}
+    <tr>
+      <td>{{tran.date}}</td>
+      <td>{{tran.info}}</td>
+      <td>{{tran.credit}}</td>
+      <td>{{tran.debit}}</td>
+      <td>{{tran.balance}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>

@@ -1,0 +1,26 @@
+{% extends 'csidebar.html' %} {% block clerk %}
+
+<h3 class="title">Change Password</h3>
+<span>{{profilemsg}}</span>
+<form method="post" class="t-form">
+  {% csrf_token %}
+  <div>Userame <span>{{data.username}}</span></div>
+  <div>
+    Old Password
+    <input type="password" class="inputs" name="opassword" value="" />
+  </div>
+  <div>
+    New Password
+    <input type="password" class="inputs" name="npassword" value="" />
+  </div>
+  <div>
+    Confirm Password
+    <input type="password" class="inputs" name="cpassword" value="" />
+  </div>
+  <div>
+    <input type="reset" class="inputs" name="reset" value="Reset" />
+    <input type="submit" class="inputs" name="Submit" value="Submit" />
+  </div>
+</form>
+
+{% endblock %}

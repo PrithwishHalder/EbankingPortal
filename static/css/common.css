@@ -1,72 +1,103 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.header{
-    background-color: #9898f0;
-    color: #fff;
-    display: flex;
-    justify-content: space-around;
-    padding: 0.5em;
-    font-weight: 600;
-    align-items: center%;
+.header {
+  background-color: #9898f0;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5em;
+  font-weight: 600;
+  align-items: center;
+  position: relative;
+}
+li {
+  cursor: pointer;
 }
 
-.link ul{
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
+.link ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+.hover {
+  display: none;
+}
+ul li:hover .hover {
+  position: absolute;
+  display: block;
+  background-color: #9898f0;
+}
+.hover ul {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.hover ul li:hover {
+  background-color: #fff;
+  color: #9898f0;
 }
 
-.link li{
-    padding: 0.5em;
+.link li {
+  padding: 0.5em;
 }
 
-.cont{
-    width: auto;
+.cont {
+  width: auto;
 }
-.link a{
-    text-decoration: none;
-    color: inherit;
+.link a {
+  text-decoration: none;
+  color: inherit;
 }
-.cont{
-    display: flex;
-    justify-content: center;
-    padding: 5em 0;
+.cont {
+  display: flex;
+  justify-content: center;
+  padding: 5em 0;
 }
 
-.login-cont{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1em;
+.login-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
 }
-.login-cont h3{
-    color: #9898f0;
-    text-align: center;
-    margin: 1em 0;
+h3 {
+  color: #9898f0;
+  text-align: center;
+  margin: 1em 0;
 }
-.inputs input{
-    width: 300px;
-    margin: 1em 0;
-    padding: 0.5em;
-    outline: none;
+.inputs input {
+  width: 300px;
+  margin: 1em 0;
+  padding: 0.5em;
+  outline: none;
 }
-.error{
-    padding: 1em;
-    margin: auto;
-    background-color: #ff0000;
-    color:#fff;
+.inputs-h {
+  display: flex;
+  justify-content: center;
 }
-button{
-    width: fit-content;
-    margin: auto;
-    background-color: #9898f0;
-    color: #fff;
-    padding: 0.5em 1em;
-    font-size: 1.2em;
-    border: none;
-    margin-top: 1em;
+.error {
+  padding: 1em;
+  margin: auto;
+  background-color: #ff0000;
+  color: #fff;
+}
+input[type="button"] {
+  background-color: #9898f0;
+  color: #fff;
+  padding: 0.3em 0.5em;
+  border: none;
+}
+button {
+  width: fit-content;
+  margin: auto;
+  background-color: #9898f0;
+  color: #fff;
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  border: none;
+  margin-top: 1em;
 }

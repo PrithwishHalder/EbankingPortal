@@ -1,0 +1,18 @@
+{% extends 'csidebar.html' %} {% block clerk %}
+
+<div>
+  <h3>Transactions</h3>
+  {% if error%}
+  <div class="error">{{error}}</div>
+  {% endif %}
+  <div class="inputs-h">
+    <p>Account No &nbsp;&nbsp;</p>
+    <div>
+      <input type="text" name="accno" autocomplete="off" id="accno" />
+      <input type="button" name="search" value="Search" onclick="search()" />
+    </div>
+  </div>
+</div>
+<div id="transaction"></div>
+
+{% endblock %}

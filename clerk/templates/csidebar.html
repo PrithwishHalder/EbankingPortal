@@ -7,25 +7,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/common.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script type="text/javascript">
+      function search() {
+        var accno = document.getElementById("accno").value;
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+          xmlhttp = new XMLHttpRequest();
+        } else {
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = () => {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("transaction").innerHTML =
+              xmlhttp.responseText;
+          }
+        };
+        xmlhttp.open("GET", "../ajaxTransaction/" + accno, true);
+        xmlhttp.send();
+      }
+    </script>
   </head>
   <body>
-    <div class="flex">
-      <div class="header">
-        <div class="logo">EBanking</div>
-        <div class="link">Hello, {{data.fullname}}</div>
+    <div class="header">
+      <div class="logo">EBanking</div>
+      <div class="link">Hello, {{data.fullname}}</div>
 
-        <div class="link">
-          <ul>
-            <a href=""><li>Dashboard</li></a>
-            <a href=""><li>User</li></a>
-            <a href=""><li>Transactions</li></a>
-            <a href=""><li>Money</li></a>
-            <a href=""><li>Profile</li></a>
-            <a href="{% url 'clogout' %}"><li>Logout</li></a>
-          </ul>
-        </div>
+      <div class="link">
+        <ul>
+          <li><a href="{% url 'clrk_dashboard' 1 %}">Dashboard</a></li>
+          <li>
+            User
+            <div class="hover">
+              <ul>
+                <a href="{% url 'addUser' 1%}"><li>Add User</li></a>
+                <a href="{% url 'searchUser' 1%}"><li>Search User</li></a>
+                <a href="{% url 'updateUser' 1%}"><li>Update User</li></a>
+              </ul>
+            </div>
+          </li>
+          <a href="{% url 'userTransaction' 1 %}"><li>Transactions</li></a>
+          <li>
+            Money
+            <div class="hover">
+              <ul>
+                <a href="{% url 'clrkWithdrawl' 1%}"><li>Withdraw</li></a>
+                <a href="{% url 'clrkTransfer' 1%}"><li>Transfer</li></a>
+                <a href="{% url 'clrkDeposit' 1%}"><li>Deposit</li></a>
+              </ul>
+            </div>
+          </li>
+          <a href="{% url 'cprofile' 1 %}"><li>Profile</li></a>
+          <a href="{% url 'clogout' %}"><li>Logout</li></a>
+        </ul>
       </div>
-      <div class="container">{% block clerk %} {% endblock %}</div>
     </div>
+    <div class="container">{% block clerk %} {% endblock %}</div>
   </body>
 </html>
