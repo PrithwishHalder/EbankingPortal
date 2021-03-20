@@ -4,17 +4,28 @@
   <span>{{profilemsg}}</span>
   <form method="post" class="t-form">
     {% csrf_token %}
-    <div>Account No <span>{{data.acc_no}}</span></div>
-    <div>Name <span>{{data.fullname}}</span></div>
+    <div class="flex">
+      Account No :
+      <input type="text" class="input hiden" value="{{data.acc_no}}" readonly />
+    </div>
+    <div class="flex">
+      Name :
+      <input
+        type="text"
+        class="input hiden"
+        value="{{data.fullname}}"
+        readonly
+      />
+    </div>
     <div>
       Email
-      <input type="email" class="inputs" name="email" value="{{data.email}}" />
+      <input type="email" class="input" name="email" value="{{data.email}}" />
     </div>
     <div>
       Mobile
       <input
         type="number"
-        class="inputs"
+        class="input"
         name="mobile"
         value="{{data.mobile}}"
         maxlength="10"
@@ -24,14 +35,24 @@
       Address
       <input
         type="text"
-        class="inputs"
+        class="input"
         name="address"
         value="{{data.address}}"
       />
     </div>
     <div>
-      <input type="reset" class="inputs" name="reset" value="Reset" />
-      <input type="submit" class="inputs" name="Submit" value="Submit" />
+      <input
+        type="reset"
+        class="button is-primary"
+        name="reset"
+        value="Reset"
+      />
+      <input
+        type="submit"
+        class="button is-link"
+        name="Submit"
+        value="Submit"
+      />
     </div>
   </form>
 </div>

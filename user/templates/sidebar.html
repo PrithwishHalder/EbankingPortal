@@ -6,9 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
+  <div class="flex">
+  <aside class="menu">
+  <p class="title">
+     EBanking 
+  </p>
+  
+  <ul class="menu-list">
+    <ul>
+    <li><a style="background-color: #9898f0;color: #fff !important;">Hello, {{data.fullname}}</a></li>
+    </ul>
+  </ul>
+  <ul class="menu-list">
+    <li><a href="{% url 'usr_dashboard' data.id %}">Dashboard</a></li>
+    <li><a href="{% url 'usr_transaction' data.id %}">Transactions</a></li>
+    <li><a href="{% url 'usr_transfer' data.id %}">Money Transfer</a></li>
+    <li><a href="{% url 'usr_profile' data.id %}">Profile</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+  </ul>
+  
+</aside>
+    {% comment %} <nav class="navbar header" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/"> EBanking </a>
+      </div>
+      <div class="navbar-menu">Hello, {{data.fullname}}</div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-menu">
+          <a href="{% url 'usr_dashboard' data.id %}">Dashboard</a>
+          <a href="{% url 'usr_transaction' data.id %}">Transactions</a>
+          <a href="{% url 'usr_transfer' data.id %}">Money Transfer</a>
+          <a href="{% url 'usr_profile' data.id %}">Profile</a>
+          <a href="{% url 'logout' %}">Logout</a>
+        </div>
+      </div>
+    </nav> {% endcomment %}
+
+    {% comment %}
     <div class="flex">
       <div class="sideheader">
         <div class="logo">EBanking</div>
@@ -28,7 +70,10 @@
           </ul>
         </div>
       </div>
-      <div class="container">{% block user %} {% endblock user %}</div>
+      {% endcomment %}
+      <div class="container">
+        <div class="section">{% block user %} {% endblock user %}</div>
+      </div>
     </div>
   </body>
 </html>

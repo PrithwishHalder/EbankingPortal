@@ -3,18 +3,19 @@
   <form method="POST">
     <div class="login-cont">
       {% csrf_token %}
-      <h3>Clerk Login</h3>
+      <h3 class="title is-2">Clerk Login</h3>
       {% if error%}
       <div class="error">{{error}}</div>
       {% endif %}
-      <div class="inputs">
-        <p>Username</p>
-        <input type="text" name="clerk" />
-        <p>Password</p>
-        <input type="password" name="password" />
-      </div>
-      <button type="submit">Login</button>
+
+      <p>Username</p>
+      <input class="input" type="text" name="clerk" />
+      <p>Password</p>
+      <input class="input" type="password" name="password" />
+
+      <button class="button is-info" type="submit">Login</button>
     </div>
   </form>
 </div>
+
 {% endblock ebanking %}

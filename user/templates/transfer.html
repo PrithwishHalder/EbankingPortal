@@ -5,20 +5,30 @@
   <form method="post" class="t-form">
     {% csrf_token %}
     <div forHtml="account">
-      Account No <input type="number" class="inputs" name="account" />
+      Account No <input type="number" class="input" name="account" />
     </div>
     <div forHtml="name">
-      Name <input type="text" class="inputs" name="name" />
+      Name <input type="text" class="input" name="name" />
     </div>
     <div forHtml="amount">
-      Amount <input type="number" class="inputs" name="amount" />
+      Amount <input type="number" class="input" name="amount" />
     </div>
     <div forHtml="Reason">
-      Reason <input type="text" class="inputs" name="reason" />
+      Reason <input type="text" class="input" name="reason" />
     </div>
     <div>
-      <input type="reset" class="inputs" name="reset" value="Reset" />
-      <input type="submit" class="inputs" name="Submit" value="Submit" />
+      <input
+        type="reset"
+        class="button is-primary"
+        name="reset"
+        value="Reset"
+      />
+      <input
+        type="submit"
+        class="button is-link"
+        name="Submit"
+        value="Submit"
+      />
     </div>
   </form>
 </div>
