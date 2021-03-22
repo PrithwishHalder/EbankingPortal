@@ -1,1 +1,82 @@
-{% extends 'csidebar.html' %} {% block clerk %} Money Transfer{% endblock %}
+{% extends 'csidebar.html' %} {% block clerk %}
+<div>
+    <h3 class="title">Transfer Money</h3>
+    {% if message%}
+    <div class="success">{{message}}</div>
+    {% endif %}
+    <form action="POST">
+        {% csrf_token %}
+        <div class="columns">
+            <div class="column">
+                <div class="columns">
+                    <div class="column">
+                        <label class="label" style="text-align: right">Sender Account No</label>
+                    </div>
+
+                    <div class="column">
+                        <p class="control">
+                            <input
+                                class="input"
+                                type="text"
+                                name="saccno"
+                                autocomplete="off"
+                                id="saccno"
+                                style="margin-top: 0em"
+                            />
+                        </p>
+                    </div>
+                    <div class="column">
+                        <p class="control">
+                            <input
+                                class="button is-link"
+                                type="button"
+                                name="search"
+                                value="Search"
+                                onclick="fetchsender()"
+                            />
+                        </p>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div id="sender"></div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="columns">
+                    <div class="column">
+                        <label class="label" style="text-align: right">Reciever Account No</label>
+                    </div>
+
+                    <div class="column">
+                        <p class="control">
+                            <input
+                                class="input"
+                                type="text"
+                                name="raccno"
+                                autocomplete="off"
+                                id="raccno"
+                                style="margin-top: 0em"
+                            />
+                        </p>
+                    </div>
+                    <div class="column">
+                        <p class="control">
+                            <input
+                                class="button is-link"
+                                type="button"
+                                name="search"
+                                value="Search"
+                                onclick="fetchreciever()"
+                            />
+                        </p>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div id="reciever"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {% endblock %}
+</div>

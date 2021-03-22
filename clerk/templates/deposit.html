@@ -1,1 +1,38 @@
-{% extends 'csidebar.html' %} {% block clerk %} Deposite{% endblock %}
+{% extends 'csidebar.html' %} {% block clerk %}
+<div>
+    <h3 class="title">Cash Deposit</h3>
+    {% if message%}
+    <div class="success">{{message}}</div>
+    {% endif %}
+    <div class="columns">
+        <div class="column">
+            <label class="label" style="text-align: right">Account No</label>
+        </div>
+
+        <div class="column">
+            <p class="control">
+                <input
+                    class="input"
+                    type="text"
+                    name="accno"
+                    autocomplete="off"
+                    id="accno"
+                    style="margin-top: 0em"
+                />
+            </p>
+        </div>
+        <div class="column">
+            <p class="control">
+                <input
+                    class="button is-link"
+                    type="button"
+                    name="search"
+                    value="Search"
+                    onclick="deposit()"
+                />
+            </p>
+        </div>
+    </div>
+</div>
+<div id="user"></div>
+{% endblock %}

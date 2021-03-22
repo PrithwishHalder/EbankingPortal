@@ -1,39 +1,38 @@
 {% extends 'csidebar.html' %} {% block clerk %}
 <div>
-  <h3 class="title">Update User</h3>
-  {% if error%}
-  <div class="error">{{error}}</div>
-  {% endif %}
-  <div class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">Account No</label>
+    <h3 class="title">Update User</h3>
+    {% if success%}
+    <div class="success">{{success}}</div>
+    {% endif %}
+    <div class="columns">
+        <div class="column">
+            <label class="label" style="text-align: right">Account No</label>
+        </div>
+
+        <div class="column">
+            <p class="control">
+                <input
+                    class="input"
+                    type="text"
+                    name="accno"
+                    autocomplete="off"
+                    id="accno"
+                    style="margin-top: 0em"
+                />
+            </p>
+        </div>
+        <div class="column">
+            <p class="control">
+                <input
+                    class="button is-link"
+                    type="button"
+                    name="search"
+                    value="Search"
+                    onclick="update()"
+                />
+            </p>
+        </div>
     </div>
-    <div class="field-body">
-      <div class="field">
-        <p class="control">
-          <input
-            class="input"
-            type="text"
-            name="accno"
-            autocomplete="off"
-            id="accno"
-            style="margin-top: 0em"
-          />
-        </p>
-      </div>
-      <div class="field">
-        <p class="control">
-          <input
-            class="button is-link"
-            type="button"
-            name="search"
-            value="Search"
-            onclick="update()"
-          />
-        </p>
-      </div>
-    </div>
-  </div>
 </div>
 <div id="user"></div>
 {% endblock %}

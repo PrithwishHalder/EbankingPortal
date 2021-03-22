@@ -28,6 +28,7 @@ def user(request):
             return render(request, 'user.html', context)
         else:
             if user_l is not None:
+                request.session.set_expiry(5000)
                 request.session['userid'] = user_l.id
                 context['id'] = user_l.id
                 # login(request, username)
@@ -55,6 +56,7 @@ def clerk(request):
             return render(request, 'clerk.html', context)
         else:
             if user_l is not None:
+                # request.session.set_expiry(5)
                 request.session['clerkid'] = user_l.id
                 context['id'] = user_l.id
                 # login(request, username)

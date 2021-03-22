@@ -1,0 +1,68 @@
+<form method="post" class="t-form">
+    {% csrf_token %}
+    <div class="columns">
+        <div class="column">
+            <div class="columns is-6">
+                <div class="column is-4">
+                    <p class="bd-notification is-info">Name :</p>
+                </div>
+                <div class="column is-7">
+                    <p class="bd-notification is-info">
+                        <input type="text" class="input hiden" value="{{data.fullname}}" readonly />
+                    </p>
+                </div>
+            </div>
+            <div class="columns is-6">
+                <div class="column is-4">
+                    <p class="bd-notification is-info">Balance :</p>
+                </div>
+                <div class="column is-7">
+                    <p class="bd-notification is-info">
+                        <input
+                            type="text"
+                            class="input hiden"
+                            value="₹ {{data.balance}}"
+                            readonly
+                        />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="columns is-6">
+                <div class="column is-4">
+                    <p class="bd-notification is-info">Account No :</p>
+                </div>
+                <div class="column is-8">
+                    <p class="bd-notification is-info">
+                        <input
+                            type="text"
+                            class="input hiden"
+                            value="{{data.acc_no}}"
+                            name="accno"
+                            readonly
+                        />
+                    </p>
+                </div>
+            </div>
+            <div class="columns is-6">
+                <div class="column is-4">
+                    <p class="bd-notification is-info">Witdraw :</p>
+                </div>
+                <div class="column is-8">
+                    <p class="bd-notification is-info">
+                        <input
+                            type="text"
+                            class="input"
+                            value=""
+                            name="amount"
+                            style="margin-top: -7px"
+                        />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="reset" class="button is-primary" name="reset" value="Reset" />
+    <input type="submit" class="button is-link" name="Submit" value="Submit" />
+</form>

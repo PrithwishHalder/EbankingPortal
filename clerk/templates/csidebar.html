@@ -1,119 +1,171 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="{% static 'css/common.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <script type="text/javascript">
-      function transaction() {
-        var accno = document.getElementById("accno").value;
-        var xmlhttp;
-        if (window.XMLHttpRequest) {
-          xmlhttp = new XMLHttpRequest();
-        } else {
-          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = () => {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById("transaction").innerHTML =
-              xmlhttp.responseText;
-          }
-        };
-        xmlhttp.open("GET", "../ajaxTransaction/" + accno, true);
-        xmlhttp.send();
-      }
-      function search() {
-        var accno = document.getElementById("accno").value;
-        var xmlhttp;
-        if (window.XMLHttpRequest) {
-          xmlhttp = new XMLHttpRequest();
-        } else {
-          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = () => {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById("user").innerHTML = xmlhttp.responseText;
-          }
-        };
-        xmlhttp.open("GET", "../ajaxTransaction/" + accno, true);
-        xmlhttp.send();
-      }
-      function update() {
-        var accno = document.getElementById("accno").value;
-        var xmlhttp;
-        if (window.XMLHttpRequest) {
-          xmlhttp = new XMLHttpRequest();
-        } else {
-          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = () => {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById("user").innerHTML = xmlhttp.responseText;
-          }
-        };
-        xmlhttp.open("GET", "../ajaxTransaction/" + accno, true);
-        xmlhttp.send();
-      }
-    </script>
-  </head>
-  <body>
-    <nav class="navbar header" role="navigation" aria-label="main navigation">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/"> EBanking </a>
-        </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+        <link rel="stylesheet" href="{% static 'css/common.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <script type="text/javascript">
+            function transaction() {
+                var accno = document.getElementById("accno").value;
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = () => {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("transaction").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "../ajaxTransaction/" + accno, true);
+                xmlhttp.send();
+            }
+            function search() {
+                var accno = document.getElementById("accno").value;
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = () => {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("user").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "../ajaxSearch/" + accno, true);
+                xmlhttp.send();
+            }
+            function update() {
+                var accno = document.getElementById("accno").value;
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = () => {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("user").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "../ajaxUpdate/" + accno, true);
+                xmlhttp.send();
+            }
+            function withdraw() {
+                var accno = document.getElementById("accno").value;
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = () => {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("user").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "../ajaxWithdraw/" + accno, true);
+                xmlhttp.send();
+            }
+            function deposit() {
+                var accno = document.getElementById("accno").value;
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = () => {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("user").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "../ajaxDeposit/" + accno, true);
+                xmlhttp.send();
+            }
+            function fetchsender() {
+                var accno = document.getElementById("saccno").value;
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = () => {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("sender").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "../sender/" + accno, true);
+                xmlhttp.send();
+            }
+            function fetchreciever() {
+                var accno = document.getElementById("raccno").value;
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = () => {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("reciever").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "../reciever/" + accno, true);
+                xmlhttp.send();
+            }
+        </script>
+    </head>
+    <body>
+        <nav class="navbar header" role="navigation" aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="/"> EBanking </a>
+                </div>
 
-        <div id="navbarBasicExample" class="navbar-end">
-          <div class="navbar-start">
-            <a class="navbar-item" href="{% url 'clrk_dashboard' 1 %}"
-              >Dashboard</a
-            >
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-item"> User </a>
+                <div id="navbarBasicExample" class="navbar-end">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="{% url 'clrk_dashboard' 1 %}">Dashboard</a>
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-item"> User </a>
 
-              <div class="navbar-dropdown">
-                <a class="navbar-item" href="{% url 'addUser' 1%}">Add User</a>
-                <a class="navbar-item" href="{% url 'searchUser' 1%}"
-                  >Search User</a
-                >
-                <a class="navbar-item" href="{% url 'updateUser' 1%}"
-                  >Update User</a
-                >
-              </div>
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item" href="{% url 'addUser' 1%}">Add User</a>
+                                <a class="navbar-item" href="{% url 'searchUser' 1%}"
+                                    >Search User</a
+                                >
+                                <a class="navbar-item" href="{% url 'updateUser' 1%}"
+                                    >Update User</a
+                                >
+                            </div>
+                        </div>
+                        <a class="navbar-item" href="{% url 'userTransaction' 1 %}">Transactions</a>
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-item"> Money </a>
+
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item" href="{% url 'clrkWithdrawl' 1%}"
+                                    >Withdraw</a
+                                >
+                                <a class="navbar-item" href="{% url 'clrkTransfer' 1%}">Transfer</a>
+                                <a class="navbar-item" href="{% url 'clrkDeposit' 1%}">Deposit</a>
+                            </div>
+                        </div>
+                        <a class="navbar-item" href="{% url 'cprofile' 1 %}">Profile</a>
+                        <a class="navbar-item" href="{% url 'clogout' %}">Logout</a>
+                    </div>
+                </div>
             </div>
-            <a class="navbar-item" href="{% url 'userTransaction' 1 %}"
-              >Transactions</a
-            >
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-item"> Money </a>
+        </nav>
 
-              <div class="navbar-dropdown">
-                <a class="navbar-item" href="{% url 'clrkWithdrawl' 1%}"
-                  >Withdraw</a
-                >
-                <a class="navbar-item" href="{% url 'clrkTransfer' 1%}"
-                  >Transfer</a
-                >
-                <a class="navbar-item" href="{% url 'clrkDeposit' 1%}"
-                  >Deposit</a
-                >
-              </div>
-            </div>
-            <a class="navbar-item" href="{% url 'cprofile' 1 %}">Profile</a>
-            <a class="navbar-item" href="{% url 'clogout' %}">Logout</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container">{% block clerk %} {% endblock %}</div>
-  </body>
+        <div class="container">{% block clerk %} {% endblock %}</div>
+    </body>
 </html>

@@ -1,18 +1,27 @@
 {% extends 'csidebar.html' %} {% block clerk %}
 <div>
   <h3 class="title">Register User Details</h3>
-  <span>{{transfermsg}}</span>
+  <span>{{success}}</span>
   <form method="post" class="t-form">
     {% csrf_token %}
     <div>Name <input type="text" class="input" name="name" /></div>
-    <div>Username <input type="text" class="input" name="uname" /></div>
-    <div>Email <input type="email" class="input" name="email" /></div>
-    <div>Mobile <input type="number" class="input" name="mobile" /></div>
+    <div>
+      Username <span class="error">{{unameerror}}</span
+      ><input type="text" class="input" name="uname" />
+    </div>
+    <div>
+      Email <span class="error">{{emailerror}}</span
+      ><input type="email" class="input" name="email" />
+    </div>
+    <div>
+      Mobile <span class="error">{{mobileerror}}</span
+      ><input type="number" class="input" name="mobile" />
+    </div>
     <div>Address <input type="text" class="input" name="address" /></div>
     <div>Password <input type="password" class="input" name="password" /></div>
     <div>
       Account Type
-      <select class="input">
+      <select class="input" name="accType">
         <option>Select Account Type</option>
         <option value="Savings">Savings</option>
         <option value="RD">RD</option>
