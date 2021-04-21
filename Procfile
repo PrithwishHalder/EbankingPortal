@@ -1,0 +1,1 @@
+web: gunicorn EbankingPortal.wsgi --log-file -
