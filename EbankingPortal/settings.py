@@ -25,7 +25,8 @@ SECRET_KEY = 'p#0$c88n%9krt&p&12+kx9c!p@f_j33+paiqc4qa^t*wi0+-2a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ebanking-live.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['ebanking-live.herokuapp.com',
+                 '127.0.0.1', 'ebanking-ph.herokuapp.com']
 
 
 # Application definition
